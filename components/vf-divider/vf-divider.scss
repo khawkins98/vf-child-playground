@@ -1,0 +1,7 @@
+// vf-divider
+
+.vf-divider {
+  @include divider;
+
+  margin-bottom: 24px;
+}

@@ -1,0 +1,4 @@
+
+
+{% include 'partials/stylesheets.nunj' %}
+<title>{% if page.title %}{{ page.title }} | {% endif %}{{ frctl.get('project.title') }}</title>

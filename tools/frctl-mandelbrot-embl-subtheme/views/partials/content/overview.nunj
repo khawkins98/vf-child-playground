@@ -1,0 +1,37 @@
+{% import "macros/status.nunj" as status %}
+
+<p>Here you'll find developer documentation on using patterns and creating new patterns for the Visual Framework.</p>
+
+<ol>
+  <li>Read <a href="#">the basics of the Visual Framework</a>;</li>
+  <li>Grab a boilerplate [link to come];</li>
+  <li>Browse the patterns below;</li>
+  <li>Learn <a href="#">how to create new patterns</a>;</li>
+  <li>Dive deep and make your own theme[link to come]; and</li>
+  <li><a href="https://embl-vf.slack.com/messages">Ask the community for help</a>.</li>
+</ol>
+
+{% include 'partials/browser/pattern-list.nunj' %}
+
+{#
+{{ frctl.components|dump(2)}}
+{{ nav.tree(frctl.components, entity, request) }}
+#}
+
+{#
+
+<h3>Component statuses</h3>
+<p>Components and their variants have been given statuses reflecting their state of completion. The available statuses are listed below.</p>
+<table>
+<tr>
+    <th>Label</th>
+    <th>Description</th>
+</tr>
+{% for handle, st in frctl.get('components.statuses') %}
+<tr>
+    <td>{{ status.tag(st) }}</td>
+    <td>{{ st.description }}</td>
+</tr>
+{% endfor %}
+</table>
+#}
