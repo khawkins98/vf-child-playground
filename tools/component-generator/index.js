@@ -29,7 +29,7 @@ module.exports = class extends Generator {
     ));
 
     var componentType = ['element', 'block', 'container', 'grid', 'boilerplate'];
-    var DepartmentType = ['VF Global', 'EMBL', 'EMBL-EBI'];
+    var DepartmentType = ['Child theme'];
 
     var prompts = [{
       type: 'list',
@@ -42,12 +42,13 @@ module.exports = class extends Generator {
       name: 'type',
       required: true,
       message: 'What type of component is this?',
-      choices: componentType
+      choices: componentType,
+      default: true
     }, {
       type: 'input',
       name: 'componentName',
       required: true,
-      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with `vf-`)',
+      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with `child-`)',
       description: 'Component name'
     }, {
       type: 'confirm',
@@ -64,17 +65,9 @@ module.exports = class extends Generator {
   writing() {
 
     switch (this.props.dept) {
-      case "VF Global":
+      case "Child theme":
       var path = "./components" + "/";
-      var namespace = "vf-";
-      break;
-      case "EMBL":
-      var path = "./components/EMBL" + "/";
-      var namespace = "embl-";
-      break;
-      case "EMBL-EBI":
-      var path = "./components/EMBL-EBI" + "/";
-      var namespace = "ebi-";
+      var namespace = "child-";
       break;
     }
     var patternType = this.props.type;
