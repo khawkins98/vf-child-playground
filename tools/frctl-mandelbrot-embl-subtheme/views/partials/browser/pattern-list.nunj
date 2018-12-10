@@ -32,11 +32,7 @@
             </p>
             {% endif %}
           {% endeach %}
-
-
         {% endif %}
-
-
 
 
       {% endeach %}
@@ -45,8 +41,6 @@
 </section>
 <hr class="vf-divider vf-u-margin__bottom-xl vf-u-margin__top-xl">
 {% endmacro %}
-
-vf-core-patterns
 
 {#
 {% asyncEach items in frctl.components %}
