@@ -22,8 +22,8 @@
 @import 'vf-utility-mixins.scss';
 
 /* All Visual Framework Font Patterns */
-@import 'vf-font-plex-mono/vf-font-plex-mono';
-@import 'vf-font-plex-sans/vf-font-plex-sans';
+// @import 'vf-plex-mono-font/vf-plex-mono-font';
+// @import 'vf-plex-sans-font/vf-plex-sans-font';
 
 html, button {
   @if $use-global-typography == true {
@@ -39,7 +39,7 @@ html, button {
 /* All Visual Framework grids */
 @import 'vf-grid/vf-grid.scss';
 @import 'vf-grid-page/vf-grid-page.scss';
-@import 'embl-grid/embl-grid.scss';
+// @import 'embl-grid/embl-grid.scss';
 
 
 /* All Visual Framework Elements */
@@ -70,14 +70,14 @@ html, button {
 @import 'vf-header/vf-header.scss';
 @import 'vf-masthead/vf-masthead.scss';
 @import 'vf-navigation/vf-navigation.scss';
-@import 'vf-job-description/vf-job-description.scss';
+// @import 'vf-job-description/vf-job-description.scss';
 @import 'vf-section-header/vf-section-header.scss';
 @import 'vf-activity-list/vf-activity-list.scss';
 @import 'vf-contact/vf-contact.scss';
-@import 'vf-news-item/vf-news-item.scss';
-@import 'vf-article-meta-information/vf-article-meta-information.scss';
-@import 'vf-video/vf-video.scss';
-@import 'vf-video-teaser/vf-video-teaser.scss';
+// @import 'vf-news-item/vf-news-item.scss';
+// @import 'vf-article-meta-information/vf-article-meta-information.scss';
+// @import 'vf-video/vf-video.scss';
+// @import 'vf-video-teaser/vf-video-teaser.scss';
 @import 'vf-global-header/vf-global-header.scss';
 @import 'vf-tabs/vf-tabs';
 
@@ -87,8 +87,8 @@ html, button {
 @import 'vf-activity-group/vf-activity-group.scss';
 @import 'vf-intro/vf-intro.scss';
 @import 'vf-banner/vf-banner.scss';
-@import 'vf-news-container/vf-news-container.scss';
-@import 'vf-video-container/vf-video-container.scss';
+// @import 'vf-news-container/vf-news-container.scss';
+// @import 'vf-video-container/vf-video-container.scss';
 @import 'vf-footer/vf-footer.scss';
 
 /* All Visual Framework Utility Classes */
