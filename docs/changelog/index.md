@@ -5,4 +5,4 @@ order: 200
 isIndex: true
 ---
 
-Changelog here.
+You can keep a changelog here.

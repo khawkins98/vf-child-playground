@@ -65,20 +65,10 @@ fractal.components.set('statuses', {
   }
 });
 
-
-
 // Customise Fractal templates
 // https://fractal.build/guide/customisation/web-themes#template-customisation
 VFTheme.addLoadPath(__dirname + '/tools/frctl-mandelbrot-vf-subtheme/views');
 // Specify the static assets directory that contains the custom stylesheet.
 VFTheme.addStatic(__dirname + '/tools/frctl-mandelbrot-vf-subtheme/assets', '/');
 
-
 fractal.web.theme(VFTheme);
-
-// fractal.components.set('resources', {
-//   scss: {
-//     label: 'SCSS',
-//     match: ['**/*.scss']
-//   }
-// });

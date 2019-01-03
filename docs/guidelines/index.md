@@ -5,4 +5,4 @@ order: 3
 isIndex: true
 ---
 
-What to do and what not to do.
+Add any notes on what to do and what no to.
