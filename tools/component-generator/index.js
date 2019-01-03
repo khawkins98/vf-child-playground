@@ -3,6 +3,9 @@ var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
 
+var childThemeNamespace = 'vct-';
+var childThemeName = 'Visual Framework Child Theme';
+
 module.exports = class extends Generator {
   prompting() {
     this.log((
@@ -29,7 +32,7 @@ module.exports = class extends Generator {
     ));
 
     var componentType = ['element', 'block', 'container', 'grid', 'boilerplate'];
-    var DepartmentType = ['VF Global', 'EMBL', 'EMBL-EBI'];
+    var DepartmentType = ['VF Global', childThemeName];
 
     var prompts = [{
       type: 'list',
@@ -47,7 +50,7 @@ module.exports = class extends Generator {
       type: 'input',
       name: 'componentName',
       required: true,
-      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with `vf-`)',
+      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with your theme\'s namespace)',
       description: 'Component name'
     }, {
       type: 'confirm',
@@ -68,13 +71,9 @@ module.exports = class extends Generator {
       var path = "./components" + "/";
       var namespace = "vf-";
       break;
-      case "EMBL":
-      var path = "./components/EMBL" + "/";
-      var namespace = "embl-";
-      break;
-      case "EMBL-EBI":
-      var path = "./components/EMBL-EBI" + "/";
-      var namespace = "ebi-";
+      case childThemeName:
+      var path = "./components" + "/";
+      var namespace = childThemeNamespace;
       break;
     }
     var patternType = this.props.type;

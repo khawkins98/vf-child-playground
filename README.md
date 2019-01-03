@@ -45,10 +45,13 @@ We'd encourage you to make it:
 - unique
 - no longer than four letters
 
-Once you've picked a prefix, you'll want to save it to the pattern generator:
+Once you've picked a prefix, you'll want to save it to the pattern generator in
+ `/tools/component-generator/templates/index.js`:
 
-1. Open `/tools/component-generator/templates/index.js`
-2. Set `namespace`
+```
+var childThemeNamespace = 'vct-';
+var childThemeName = 'Visual Framework Child Theme';
+```
 
 ## Launch the local pattern library
 
