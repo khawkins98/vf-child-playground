@@ -29,7 +29,7 @@ module.exports = class extends Generator {
     ));
 
     var componentType = ['element', 'block', 'container', 'grid', 'boilerplate'];
-    var DepartmentType = ['Child theme'];
+    var DepartmentType = ['VF Global', 'EMBL', 'EMBL-EBI'];
 
     var prompts = [{
       type: 'list',
@@ -42,13 +42,12 @@ module.exports = class extends Generator {
       name: 'type',
       required: true,
       message: 'What type of component is this?',
-      choices: componentType,
-      default: true
+      choices: componentType
     }, {
       type: 'input',
       name: 'componentName',
       required: true,
-      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with `child-`)',
+      message: 'What\'s the name of your component? (all lowercase, a hyphen instead of space, will be prefixed with `vf-`)',
       description: 'Component name'
     }, {
       type: 'confirm',
@@ -65,9 +64,17 @@ module.exports = class extends Generator {
   writing() {
 
     switch (this.props.dept) {
-      case "Child theme":
+      case "VF Global":
       var path = "./components" + "/";
-      var namespace = "child-";
+      var namespace = "vf-";
+      break;
+      case "EMBL":
+      var path = "./components/EMBL" + "/";
+      var namespace = "embl-";
+      break;
+      case "EMBL-EBI":
+      var path = "./components/EMBL-EBI" + "/";
+      var namespace = "ebi-";
       break;
     }
     var patternType = this.props.type;
@@ -90,6 +97,16 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('_component.scss'),
+      this.destinationPath(totalPath + outputFile),
+      {
+        componentName: fileName
+      }
+    );
+
+    var outputFile =  fileName + '.variables.scss';
+
+    this.fs.copyTpl(
+      this.templatePath('_component.variables.scss'),
       this.destinationPath(totalPath + outputFile),
       {
         componentName: fileName
