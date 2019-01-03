@@ -23,7 +23,6 @@
       {% if menuitem.isIndex != true %}
         <li>
           <a href="{{ path( (menuitem | url), request ) }}">{{ menuitem.title }}</a>
-
         </li>
         {#
         {{ menuitem | dump(2) }}
@@ -33,14 +32,6 @@
   {% endeach %}
   </ul>
 {% endeach %}
-
-{#
-<nav class="Navigation">
-    {% include 'partials/navigation/docs.nunj' %}
-</nav>
-#}
-
-
 
 {% block pageContent %}
 {% import "macros/errors.nunj" as errors %}
