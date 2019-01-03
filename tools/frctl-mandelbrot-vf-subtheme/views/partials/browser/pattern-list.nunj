@@ -18,8 +18,8 @@
           <a class="vf-link" href="{{ path(frctl.theme.urlFromRoute('component', { handle: items.handle })) }}">{{ items.label }}</a>
           {% if items.status %}{{ status.unlabelled(items.status) }}{% endif %}
           {% if items.baseHandle.slice(0,3) == "vf-" %}
-          <!-- Pattern is part of vf-core but has been overidden -->
-          <span class="vf-tag">🖋overidden</span>
+          <!-- Pattern is part of vf-core but has been overridden -->
+          <span class="vf-tag">🖋overridden</span>
           {% endif %}
 
         </p>

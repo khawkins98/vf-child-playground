@@ -31,6 +31,7 @@
     "@visual-framework/vf-link": "0.0.18",
     "@visual-framework/vf-list": "0.0.18",
     "@visual-framework/vf-logo": "0.0.21",
+    "@visual-framework/vf-navigation": "0.0.22",
     "@visual-framework/vf-no-js": "0.0.7",
     "@visual-framework/vf-page-header": "0.0.22",
     "@visual-framework/vf-plex-mono-font": "0.0.18",
