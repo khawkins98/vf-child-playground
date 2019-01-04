@@ -10,8 +10,8 @@ const SassInput = './assets/scss/styles.scss';
 const SassOutput = './public/css';
 const autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 const config = JSON.parse(fs.readFileSync('./package.json'));
-global.childThemeNamespace = config.vfConfig.childThemeNamespace;
 global.childThemeName = config.vfConfig.childThemeName;
+global.childThemeNamespace = config.vfConfig.childThemeNamespace;
 
 // -----------------------------------------------------------------------------
 // Dependencies
@@ -351,4 +351,4 @@ gulp.task('tokens', gulp.parallel(
     'tokens:variables', 'tokens:typographic-scale', 'tokens:maps'
 ));
 
-gulp.task('component', shell.task(['yo ./tools/component-generator --childThemeName=test']));
+gulp.task('component', shell.task(['yo ./tools/component-generator']));
