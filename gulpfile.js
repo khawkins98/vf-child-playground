@@ -1,5 +1,18 @@
 'use strict';
 
+const fs = require('fs');
+
+// -----------------------------------------------------------------------------
+// Configuration
+// -----------------------------------------------------------------------------
+
+const SassInput = './assets/scss/styles.scss';
+const SassOutput = './public/css';
+const autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
+const config = JSON.parse(fs.readFileSync('./package.json'));
+global.childThemeNamespace = config.vfConfig.childThemeNamespace;
+global.childThemeName = config.vfConfig.childThemeName;
+
 // -----------------------------------------------------------------------------
 // Dependencies
 // -----------------------------------------------------------------------------
@@ -42,13 +55,6 @@ const reload = browserSync.reload;
 const theoG = require('gulp-theo')
 const theo = require('theo')
 
-// -----------------------------------------------------------------------------
-// Configuration
-// -----------------------------------------------------------------------------
-
-const SassInput = './assets/scss/styles.scss';
-const SassOutput = './public/css';
-const autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 
 
 // -----------------------------------------------------------------------------
@@ -345,4 +351,4 @@ gulp.task('tokens', gulp.parallel(
     'tokens:variables', 'tokens:typographic-scale', 'tokens:maps'
 ));
 
-gulp.task('component', shell.task(['yo ./tools/component-generator']));
+gulp.task('component', shell.task(['yo ./tools/component-generator --childThemeName=test']));

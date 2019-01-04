@@ -1,57 +1,47 @@
-# vf-child
+# Visual Framework Child Theme template
 
-This project is a template to easily make use of core Visual Framework patterns,
+Clone this project as a template to easily make use of core Visual Framework patterns,
 override them, and add your own.
 
-Why use a child theme? So you can programatically use (and update from)
-Visual Framework core patterns, while maintain complete flexibility in the look
-and function of your patterns (in addition to the Visual Framework's style
-isolation principles (add link)).
+Why use a child theme? Programatically use (and update from)
+Visual Framework core patterns, but with complete flexibility in the look
+and function of your patterns (in addition to the Visual Framework's [style
+isolation principles](https://blogs.embl.org/communications/2018/09/12/faster-scientific-websites-through-reusability/)).
 
-## Take a few minutes to read the basics of the Visual Framework;
+## Know the basics
 
+If you've not already, take a few minutes to [read the basics of the Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20).
 
 ## Clone the Visual Framework Child Theme template
 
-(todo: link to vf-core guide on installing dev dependencies)
+*(You'll need gulp and node; [head here if you don't know what those are](https://github.com/visual-framework/vf-core/blob/develop/SETTINGUP.md))*
 
-- `git clone git@github.com: ... .git` (add repo url once ready)
-- `cd vf-child`
+- `git clone https://github.com/khawkins98/vf-child-playground.git` (add repo url once ready)
+- `cd vf-child-playground`
 - `npm install`
 
 ## Decide on project name
 
-### 1. Set a name
+### 1. Set a name and namespace
 
-Open `factal.js` and change
-
-```
-fractal.set('project.title', 'Visual Framework Child Theme');
-```
-
-Examples:
-
-- My Company Name theme
-- Visual Framework for My Company Name
-
-### 2. Pick a prefix
-
-Custom patterns will be prefixed by a short abbreviation or phrase. So, your
-custom pattern for a countdown timer might be `acme-countdown-timer` or if you're
-building for Bob's Pizza, `bp-countdown-timer`.
-
-We'd encourage you to make it:
-
-- unique
-- no longer than four letters
-
-Once you've picked a prefix, you'll want to save it to the pattern generator in
- `/tools/component-generator/templates/index.js`:
+Open `pacakage.json` and edit:
 
 ```
-var childThemeNamespace = 'vct-';
-var childThemeName = 'Visual Framework Child Theme';
+"vfConfig": {
+  "childThemeNamespace": "vct-",
+  "childThemeName": "Visual Framework Child Theme"
+},
 ```
+
+- `childThemeName` examples:
+  - My Company Name theme
+  - Visual Framework for My Company Name
+- `childThemeNamespace` prefix:
+  - Custom patterns will be prefixed by a short abbreviation or phrase. So, your
+    custom pattern for a countdown timer might be `acme-countdown-timer` or if you're
+    building for Bob's Pizza, `bp-countdown-timer`. We'd encourage you to make it:
+    - unique
+    - no longer than four letters
 
 ## Launch the local pattern library
 

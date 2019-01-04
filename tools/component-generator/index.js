@@ -2,9 +2,7 @@ var Generator = require('yeoman-generator');
 var chalk = require('chalk');
 var yosay = require('yosay');
 var path = require('path');
-
-var childThemeNamespace = 'vct-';
-var childThemeName = 'Visual Framework Child Theme';
+var config = require('../../package.json');
 
 module.exports = class extends Generator {
   prompting() {
@@ -32,7 +30,7 @@ module.exports = class extends Generator {
     ));
 
     var componentType = ['element', 'block', 'container', 'grid', 'boilerplate'];
-    var DepartmentType = ['VF Global', childThemeName];
+    var DepartmentType = ['VF Global', config.vfConfig.childThemeName];
 
     var prompts = [{
       type: 'list',
@@ -73,7 +71,7 @@ module.exports = class extends Generator {
       break;
       case childThemeName:
       var path = "./components" + "/";
-      var namespace = childThemeNamespace;
+      var namespace = config.vfConfig.childThemeNamespace;
       break;
     }
     var patternType = this.props.type;
