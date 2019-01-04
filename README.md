@@ -51,11 +51,11 @@ Be sure to keep an eye on the console for any compile errors or style linting.
 ### Override `vf-core` patterns
 
 1. If you haven't already, install the pattern via `npm`
-  - `npm install --save @visual-framework/vf-heading`
+    - `npm install --save @visual-framework/vf-heading`
 1. Move a pattern's source folder from `./components/vf-core-patterns` to `./components`
-  - `mv components/vf-core-patterns/vf-heading components/vf-heading`
+    - `mv components/vf-core-patterns/vf-heading components/vf-heading`
 1. If the pattern is present in `package.json` remove its reference
-  - Delete: `    "@visual-framework/vf-heading": "0.0.21",`
+    - Delete: `    "@visual-framework/vf-heading": "0.0.21",`
 1. Edit the pattern in `./components` as you see fit
 
 ### Install additional patterns
