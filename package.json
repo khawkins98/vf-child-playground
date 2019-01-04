@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "vfConfig": {
-    "childThemeNamespace": "vct-",
-    "childThemeName": "Visual Framework Child Theme"
+    "childThemeName": "Visual Framework Child Theme",
+    "childThemeNamespace": "vct-"
   },
   "author": "",
   "license": "ISC",

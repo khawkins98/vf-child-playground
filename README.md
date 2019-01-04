@@ -20,16 +20,14 @@ If you've not already, take a few minutes to [read the basics of the Visual Fram
 - `cd vf-child-playground`
 - `npm install`
 
-## Decide on project name
-
-### 1. Set a name and namespace
+## Decide on project name + nameSpace
 
 Open `pacakage.json` and edit:
 
 ```
 "vfConfig": {
-  "childThemeNamespace": "vct-",
-  "childThemeName": "Visual Framework Child Theme"
+  "childThemeName": "Visual Framework Child Theme",
+  "childThemeNamespace": "vct-"
 },
 ```
 
@@ -45,11 +43,20 @@ Open `pacakage.json` and edit:
 
 ## Launch the local pattern library
 
-`gulp dev`
+Enter `gulp dev` and the pattern library will build and open in your browser.
+Be sure to keep an eye on the console for any compile errors or style linting.
 
 ## Make and edit patterns
 
 ### Override `vf-core` patterns
+
+1. If you haven't already, install the pattern via `npm`
+  - `npm install --save @visual-framework/vf-heading`
+1. Move a pattern's source folder from `./components/vf-core-patterns` to `./components`
+  - `mv components/vf-core-patterns/vf-heading components/vf-heading`
+1. If the pattern is present in `package.json` remove its reference
+  - Delete: `    "@visual-framework/vf-heading": "0.0.21",`
+1. Edit the pattern in `./components` as you see fit
 
 ### Install additional patterns
 
@@ -65,7 +72,7 @@ npm install --save @visual-framework/vf-heading
 If a pattern you wish to use isn't available on npm, copy it to your `/components`
 directory.
 
-In either case, after adding the pattern you'll needed to refernce the Sass in
+In either case, after adding the pattern you'll needed to reference the Sass in
 your `/assets/scss/styles.scss`
 
 ### Learn how to create new patterns
