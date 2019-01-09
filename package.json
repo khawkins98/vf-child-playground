@@ -8,7 +8,8 @@
   },
   "vfConfig": {
     "childThemeName": "Visual Framework Child Theme",
-    "childThemeNamespace": "vct-"
+    "childThemeNamespace": "vct-",
+    "childThemeHomepage": "https://khawkins98.github.io/vf-child-playground"
   },
   "author": "",
   "license": "ISC",
