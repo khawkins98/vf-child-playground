@@ -1,6 +1,6 @@
 # Visual Framework Child Theme template
 
-Clone this project as a template to easily make use of [the core Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20) 
+Clone this project as a template to easily make use of [the core Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20)
 patterns, override them, and add your own.
 
 Why use a child theme? Programatically use (and update from)
@@ -8,11 +8,11 @@ Visual Framework core patterns, but with complete flexibility in the look
 and function of your patterns (in addition to the Visual Framework's [style
 isolation principles](https://blogs.embl.org/communications/2018/09/12/faster-scientific-websites-through-reusability/)).
 
-## Know the basics
+## 🚼 Know the basics
 
 If you've not already, take a few minutes to [read the basics of the Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20).
 
-## Clone the Visual Framework Child Theme template
+## 1️⃣ 📦 Clone the Visual Framework Child Theme template
 
 *(You'll need gulp and node; [head here if you don't know what those are](https://github.com/visual-framework/vf-core/blob/develop/SETTINGUP.md))*
 
@@ -20,7 +20,7 @@ If you've not already, take a few minutes to [read the basics of the Visual Fram
 - `cd vf-child-playground`
 - `npm install`
 
-## Decide on project name + nameSpace
+## 2️⃣ 🎫 Decide on project name + nameSpace
 
 Open `pacakage.json` and edit:
 
@@ -41,12 +41,12 @@ Open `pacakage.json` and edit:
     - unique
     - no longer than four letters
 
-## Launch the local pattern library
+## 3️⃣ ⌨️ Launch the local pattern library
 
 Enter `gulp dev` and the pattern library will build and open in your browser.
 Be sure to keep an eye on the console for any compile errors or style linting.
 
-## Make and edit patterns
+## 4️⃣ 🖌 Make and edit patterns
 
 ### Override `vf-core` patterns
 
@@ -99,7 +99,7 @@ This codebase includes a folder and file creation tool. It allows you to quickly
    - Publish it to npm; or
    - If you think your pattern is of use to the wider `vf-core` community, [make a Pull Request](https://github.com/visual-framework/vf-core/pulls).
 
-## Customise the pattern library
+## 5️⃣ 💅 Customise the pattern library
 
 The Visual Framework uses the [Fractal pattern library](https://fractal.build/).
 
@@ -108,14 +108,14 @@ in `tools/frctl-mandelbrot-vf-subtheme`.
 
 For more guidance, [see the Fractal documentation](https://fractal.build/guide/customisation/web-themes.html#configuring-themes).
 
-## Put your child theme and patterns into use
+## 6️⃣ 🏎 Put your child theme and patterns into use
 
 Once you've configured your theme, selected patterns and made a few new ones,
 here's how you make use of them.
 
 ### Generate CSS and JS for your website
 
-Running `gupl build` will generate a `/build` directory where you'll find:
+Running `gulp build` will generate a `/build` directory where you'll find:
 - global assets
     - `css/styles.css`
     - `scripts/scripts.js`
@@ -130,11 +130,11 @@ You can `@import` your sass, follow the example in `components/vf-core/index.scs
 
 To come.
 
-### Contribute your Patterns
+## 7️⃣ 🎁 Contribute your Patterns
 
 To come: how to add patterns back to the global `vf-core`
 
-## Ask the community
+## 8️⃣ ⁉️ Ask the community
 
 - [Slack](https://embl-vf.slack.com/messages)
 - [GitHub issues](https://github.com/visual-framework/vf-core/issues/)
