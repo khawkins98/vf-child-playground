@@ -1,6 +1,6 @@
 # Visual Framework Child template
 
-(** tl;dr ** Clone and edit me)
+tl;dr Clone and edit me.
 
 This is a child template to use [the core Visual Framework (`vf-core`)](https://github.com/visual-framework/vf-core#visual-framework-20)
 patterns, override them and add your own.
