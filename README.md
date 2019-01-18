@@ -1,7 +1,7 @@
 # Visual Framework Child Theme template
 
-Clone this project as a template to easily make use of core Visual Framework patterns,
-override them, and add your own.
+Clone this project as a template to easily make use of [the core Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20) 
+patterns, override them, and add your own.
 
 Why use a child theme? Programatically use (and update from)
 Visual Framework core patterns, but with complete flexibility in the look
