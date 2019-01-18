@@ -6,7 +6,7 @@ const fs = require('fs');
 // Configuration
 // -----------------------------------------------------------------------------
 
-const SassInput = './assets/scss/styles.scss';
+const SassInput = './components/vf-core/index.scss';
 const SassOutput = './public/css';
 const autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 const config = JSON.parse(fs.readFileSync('./package.json'));
@@ -41,6 +41,10 @@ const reporter    = require('postcss-reporter');
 const syntax_scss = require('postcss-scss');
 const stylelint   = require('stylelint');
 
+// Image things
+
+const svgo = require('gulp-svgo');
+
 // JS Stuff
 const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
@@ -55,8 +59,6 @@ const reload = browserSync.reload;
 const theoG = require('gulp-theo')
 const theo = require('theo')
 
-
-
 // -----------------------------------------------------------------------------
 // Sass and CSS Tasks
 // -----------------------------------------------------------------------------
@@ -70,9 +72,9 @@ gulp.task('css', function() {
       path.resolve(__dirname, 'components/vf-sass-config/variables'),
       path.resolve(__dirname, 'components/vf-sass-config/functions'),
       path.resolve(__dirname, 'components/vf-sass-config/mixins'),
-      path.resolve(__dirname, 'assets/scss'),
       path.resolve(__dirname, 'components'),
-      path.resolve(__dirname, 'components/vf-core-patterns')
+      path.resolve(__dirname, 'components/vf-core-patterns'),
+      path.resolve(__dirname, 'node_modules'),
     ]
   };
   return gulp
@@ -87,6 +89,11 @@ gulp.task('css', function() {
     )
     .pipe(browserSync.stream())
     .pipe(sourcemaps.write())
+    .pipe(rename(
+      {
+        basename: "styles"
+      }
+    ))
     .pipe(gulp.dest(SassOutput))
     .pipe(cssnano())
     .pipe(rename(
@@ -169,7 +176,8 @@ gulp.task("scss-lint", function() {
     })
   ];
 
-  return gulp.src(
+  return gulp
+    .src(
       ['components/**/vf-*.scss', '!components/**/index.scss', '!assets/**/*.scss']
     )
     .pipe(postcss(processors, {syntax: syntax_scss}));
@@ -181,9 +189,9 @@ gulp.task("scss-lint", function() {
 // -----------------------------------------------------------------------------
 gulp.task('scripts', function() {
   return gulp
-  .src('./components/**/*.js')
-  .pipe(concat('scripts.js'))
-  .pipe(gulp.dest('./public/scripts'));
+    .src('./components/**/*.js')
+    .pipe(concat('scripts.js'))
+    .pipe(gulp.dest('./public/scripts'));
 });
 
 // -----------------------------------------------------------------------------
@@ -191,12 +199,21 @@ gulp.task('scripts', function() {
 // -----------------------------------------------------------------------------
 gulp.task('pattern-assets', function() {
   return gulp
-  .src(['./components/**/**/assets/**/*'])
-  .pipe(gulp.dest('./public/assets'));
-  // .pipe(gulp.dest('./assets'));
+    .src(['./components/**/**/assets/**/*'])
+    .pipe(gulp.dest('./public/assets'));
+    // .pipe(gulp.dest('./assets'));
 });
 
 
+// -----------------------------------------------------------------------------
+// Pattern Assets
+// -----------------------------------------------------------------------------
+gulp.task('images', () => {
+  return gulp
+    .src('./components/**/*.svg')
+    .pipe(svgo())
+    .pipe(gulp.dest('./components'));
+});
 
 // -----------------------------------------------------------------------------
 // Design Token Tasks
@@ -235,7 +252,7 @@ gulp.task('tokens:typographic-scale', () =>
       path.extname = ".scss";
     }))
     .pipe(gulp.dest('./components/vf-sass-config/variables'))
-)
+);
 
 gulp.task('tokens:variables', () =>
   gulp.src('./components/vf-design-tokens/variables/*.yml')
@@ -244,7 +261,7 @@ gulp.task('tokens:variables', () =>
       format: { type: 'scss' }
     }))
     .pipe(gulp.dest('./components/vf-sass-config/variables'))
-)
+);
 
 gulp.task('tokens:maps', () =>
   gulp.src(['./components/vf-design-tokens/maps/*.yml', '!./components/vf-design-tokens/typographic-scales/*.yml'])
@@ -253,12 +270,11 @@ gulp.task('tokens:maps', () =>
       format: { type: 'map.scss' }
     }))
     .pipe(gulp.dest('./components/vf-sass-config/variables'))
-)
+);
 
 // -----------------------------------------------------------------------------
 // Fractal Tasks
 // -----------------------------------------------------------------------------
-
 
 gulp.task('frctlStart', function() {
   fractal.set('project.environment.local', 'true');
@@ -294,13 +310,16 @@ gulp.task('frctlBuild', function() {
 // -----------------------------------------------------------------------------
 
 var genCss = function (option) {
-  var file_name = path.basename(path.dirname(option.file_path)) + ".css"
+  var file_name = path.basename(path.dirname(option.file_path)) + ".css";
   return gulp.src(option.file_path)
     .pipe(sass({
       includePaths: [
         path.resolve(__dirname, 'components/vf-sass-config/variables'),
         path.resolve(__dirname, 'components/vf-sass-config/functions'),
-        path.resolve(__dirname, 'components/vf-sass-config/mixins')
+        path.resolve(__dirname, 'components/vf-sass-config/mixins'),
+        path.resolve(__dirname, 'components'),
+        path.resolve(__dirname, 'components/vf-core-patterns'),
+        path.resolve(__dirname, 'node_modules')
       ],
       outputStyle: 'expanded'
     })
@@ -328,9 +347,8 @@ gulp.task('CSSGen', function(done) {
 gulp.task('watch', function(done) {
   fractal.watch();
   gulp.watch('./**/*.scss', gulp.series(['css', 'scss-lint'])).on('change', reload);
-
-  gulp.watch(['./assets/scripts/**/*.js','./components/**/*.js'], gulp.series('scripts')).on('change', reload);
-  gulp.watch('./components/**/**/assets/*', gulp.series('pattern-assets')).on('change', reload);
+  gulp.watch('./components/**/*.js', gulp.series('scripts')).on('change', reload);
+  gulp.watch('./components/**/**/assets/*', gulp.series('images', 'pattern-assets')).on('change', reload);
 });
 
 
@@ -340,15 +358,17 @@ gulp.task('watch', function(done) {
 
 // Build as a static site for CI
 gulp.task('build', gulp.series(
-    'scss-lint', 'css', 'pattern-assets', 'scripts', 'frctlBuild'
+  'scss-lint', 'CSSGen', 'css', 'pattern-assets', 'scripts', 'frctlBuild'
 ));
 
 gulp.task('dev', gulp.parallel(
-    'frctlStart', 'pattern-assets', 'css', 'scripts', 'watch'
+  'frctlStart', 'pattern-assets', 'css', 'scripts', 'watch'
 ));
 
 gulp.task('tokens', gulp.parallel(
-    'tokens:variables', 'tokens:typographic-scale', 'tokens:maps'
+  'tokens:variables', 'tokens:typographic-scale', 'tokens:maps'
 ));
 
-gulp.task('component', shell.task(['yo ./tools/component-generator']));
+gulp.task('component', shell.task(
+  ['yo ./tools/component-generator']
+));
