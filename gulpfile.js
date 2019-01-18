@@ -64,8 +64,6 @@ const theo = require('theo')
 // -----------------------------------------------------------------------------
 
 gulp.task('css', function() {
-  const options = {
-  };
   const opts = {
     importer: [nodeModuleImport],
     includePaths: [
