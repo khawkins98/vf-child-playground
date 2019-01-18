@@ -1,9 +1,11 @@
-# Visual Framework Child Theme template
+# Visual Framework Child template
 
-Clone this project as a template to easily make use of [the core Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20)
-patterns, override them, and add your own.
+(** tl;dr ** Clone and edit me)
 
-Why use a child theme? Programatically use (and update from)
+This is a child template to use [the core Visual Framework (`vf-core`)](https://github.com/visual-framework/vf-core#visual-framework-20)
+patterns, override them and add your own.
+
+Why use a child? Programatically use (and update from)
 Visual Framework core patterns, but with complete flexibility in the look
 and function of your patterns (in addition to the Visual Framework's [style
 isolation principles](https://blogs.embl.org/communications/2018/09/12/faster-scientific-websites-through-reusability/)).
@@ -12,7 +14,7 @@ isolation principles](https://blogs.embl.org/communications/2018/09/12/faster-sc
 
 If you've not already, take a few minutes to [read the basics of the Visual Framework](https://github.com/visual-framework/vf-core#visual-framework-20).
 
-## 1️⃣ 📦 Clone the Visual Framework Child Theme template
+## 1️⃣ 📦 Clone the Visual Framework Child template
 
 *(You'll need gulp and node; [head here if you don't know what those are](https://github.com/visual-framework/vf-core/blob/develop/SETTINGUP.md))*
 
@@ -20,19 +22,19 @@ If you've not already, take a few minutes to [read the basics of the Visual Fram
 - `cd vf-child-playground`
 - `npm install`
 
-## 2️⃣ 🎫 Decide on project name + nameSpace
+## 2️⃣ 🎫 Decide on project name, namespace
 
 Open `pacakage.json` and edit:
 
 ```
 "vfConfig": {
-  "vfName": "Visual Framework Child Theme",
+  "vfName": "Visual Framework Child pattern library",
   "vfNamespace": "vct-"
 },
 ```
 
 - `vfName` examples:
-  - My Company Name theme
+  - My Company Name pattern library
   - Visual Framework for My Company Name
 - `vfNamespace` prefix:
   - Custom patterns will be prefixed by a short abbreviation or phrase. So, your
@@ -60,7 +62,7 @@ Be sure to keep an eye on the console for any compile errors or style linting.
 
 ### Install additional patterns
 
-You can install patterns from vf-core or from other Visual Framework-compliant themes.
+You can install patterns from vf-core or from other Visual Framework-compliant pattern libraries.
 
 To add additional Visual Framework core patterns, find one you like and use npm;
 for example, the `vf-heading` pattern:
@@ -108,9 +110,9 @@ in `tools/frctl-mandelbrot-vf-subtheme`.
 
 For more guidance, [see the Fractal documentation](https://fractal.build/guide/customisation/web-themes.html#configuring-themes).
 
-## 6️⃣ 🏎 Put your child theme and patterns into use
+## 6️⃣ 🏎 Put your pattern library into use
 
-Once you've configured your theme, selected patterns and made a few new ones,
+Once you've configured your pattern library, selected patterns and made a few new ones,
 here's how you make use of them.
 
 ### Generate CSS and JS for your website
