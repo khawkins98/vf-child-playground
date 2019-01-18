@@ -77,19 +77,54 @@ your `/assets/scss/styles.scss`
 
 ### Learn how to create new patterns
 
-`gulp component`
+This codebase includes a folder and file creation tool. It allows you to quickly create all the required files to make a component. It gives you the option to create am element, block, or container.
 
-More to come.
+1. Install Yeoman
+   - If you've come this far and you don't have `yo`, you should be able to install it with `npm install -g yo@latest`
+   - If you get stuck, [see the official install guide](http://yeoman.io/codelab/setup.html)
+1. Create a new component
+   - Run `gulp component` and answer the questions when prompted.
+       - **Type of component:** We use a variation of the atomic design methodology, [read about the differences here](http://bradfrost.com/blog/post/atomic-web-design/#atoms). We use: elements, blocks, and containers.
+           - an element would be a heading, or a button
+           - a block would be a teaser, or a search form
+           - a container would be a group of teasers
+       - **Name of component:** Go for something simple and obvious (todo: we need a guide/documentation on how we name things). Don't worry about namespacing and prefixing, the tooling will take care of this.
+       - **NPM package:** If you're making something interesting (probably not an 'element'), then saying 'yes' will allow the component to be shared as an optional part of the framework on NPM.
+    - You customised template pattern will have been added to your `/components` directory.
+1. Add the `@import 'vfc-your-pattern.scss';` to `/assets/scss/styles.scss`.
+1. Developing your component
+   - Edit your template files in the `/components/your-pattern-name` folder
+   - Run `gulp dev` to compile and preview the pattern
+1. Sharing you component back
+   - Publish it to npm; or
+   - If you think your pattern is of use to the wider `vf-core` community, [make a Pull Request](https://github.com/visual-framework/vf-core/pulls).
 
-## Customise the layout of the pattern library by editing the Fractal theme in `tools/frctl-mandelbrot-vf-subtheme`;
+## Customise the pattern library
 
-## Put your patterns into use
+The Visual Framework uses the [Fractal pattern library](https://fractal.build/).
+
+You can customise the layout of the pattern library by editing the Fractal theme
+in `tools/frctl-mandelbrot-vf-subtheme`.
+
+For more guidance, [see the Fractal documentation](https://fractal.build/guide/customisation/web-themes.html#configuring-themes).
+
+## Put your child theme and patterns into use
+
+Once you've configured your theme, selected patterns and made a few new ones,
+here's how you make use of them.
 
 ### Generate CSS and JS for your website
 
+Running `gupl build` will generate a `/build` directory where you'll find:
+- global assets
+    - `css/styles.css`
+    - `scripts/scripts.js`
+- per-pattern JavaScript and image assets
+    - `assets/vf-*`
+
 ### Consume patterns as Sass
 
-Follow example in `assets/scss/styles.scss`
+You can `@import` your sass, follow the example in `assets/scss/styles.scss`.
 
 ### Deploy your pattern library
 
