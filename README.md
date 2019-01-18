@@ -26,15 +26,15 @@ Open `pacakage.json` and edit:
 
 ```
 "vfConfig": {
-  "childThemeName": "Visual Framework Child Theme",
-  "childThemeNamespace": "vct-"
+  "vfName": "Visual Framework Child Theme",
+  "vfNamespace": "vct-"
 },
 ```
 
-- `childThemeName` examples:
+- `vfName` examples:
   - My Company Name theme
   - Visual Framework for My Company Name
-- `childThemeNamespace` prefix:
+- `vfNamespace` prefix:
   - Custom patterns will be prefixed by a short abbreviation or phrase. So, your
     custom pattern for a countdown timer might be `acme-countdown-timer` or if you're
     building for Bob's Pizza, `bp-countdown-timer`. We'd encourage you to make it:

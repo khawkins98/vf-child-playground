@@ -10,8 +10,8 @@ const SassInput = './assets/scss/styles.scss';
 const SassOutput = './public/css';
 const autoprefixerOptions = { browsers: ['last 2 versions', '> 5%', 'Firefox ESR'] };
 const config = JSON.parse(fs.readFileSync('./package.json'));
-global.childThemeName = config.vfConfig.childThemeName;
-global.childThemeNamespace = config.vfConfig.childThemeNamespace;
+global.vfName = config.vfConfig.vfName;
+global.vfNamespace = config.vfConfig.vfNamespace;
 
 // -----------------------------------------------------------------------------
 // Dependencies
