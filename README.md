@@ -73,7 +73,7 @@ If a pattern you wish to use isn't available on npm, copy it to your `/component
 directory.
 
 In either case, after adding the pattern you'll needed to reference the Sass in
-your `/assets/scss/styles.scss`
+your `/components/vf-core/index.scss`
 
 ### Learn how to create new patterns
 
@@ -91,7 +91,7 @@ This codebase includes a folder and file creation tool. It allows you to quickly
        - **Name of component:** Go for something simple and obvious (todo: we need a guide/documentation on how we name things). Don't worry about namespacing and prefixing, the tooling will take care of this.
        - **NPM package:** If you're making something interesting (probably not an 'element'), then saying 'yes' will allow the component to be shared as an optional part of the framework on NPM.
     - You customised template pattern will have been added to your `/components` directory.
-1. Add the `@import 'vfc-your-pattern.scss';` to `/assets/scss/styles.scss`.
+1. Add the `@import 'vfc-your-pattern.scss';` to `/components/vf-core/index.scss`.
 1. Developing your component
    - Edit your template files in the `/components/your-pattern-name` folder
    - Run `gulp dev` to compile and preview the pattern
@@ -124,10 +124,17 @@ Running `gupl build` will generate a `/build` directory where you'll find:
 
 ### Consume patterns as Sass
 
-You can `@import` your sass, follow the example in `assets/scss/styles.scss`.
+You can `@import` your sass, follow the example in `components/vf-core/index.scss`.
 
 ### Deploy your pattern library
 
-### Contribute new patterns back to the global `vf-core`;
+To come.
 
-## Ask the community for help or open an issue; and
+### Contribute your Patterns
+
+To come: how to add patterns back to the global `vf-core`
+
+## Ask the community
+
+- [Slack](https://embl-vf.slack.com/messages)
+- [GitHub issues](https://github.com/visual-framework/vf-core/issues/)
